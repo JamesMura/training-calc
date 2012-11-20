@@ -9,4 +9,15 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertThat(calculator.add(5,5),is(10));
     }
+
+    @Test
+    public void shouldSubtractTwoNumbers(){
+       Calculator calculator = new Calculator();
+       assertThat(calculator.subtract(4,2), is(2));
+    }
+    @Test
+    public void shouldMultiplyTwoNumbers(){
+        Calculator calculator = new Calculator();
+        assertThat(calculator.multiply(2,3),is(6));
+    }
 }

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -10,7 +12,7 @@ public class CalculatorTest {
 
     @Before
     public void setupCalc() {
-        calculator = new Calculator();
+        calculator = new Calculator(new FakeRandom());
     }
 
     @Test
@@ -28,5 +30,14 @@ public class CalculatorTest {
         assertThat(calculator.multiply(2, 3), is(6));
     }
 
+    @Test
+    public void shouldMultiplyByRandomNumber(){
+        assertThat(calculator.multiplyByRandom(5),is(10));
+    }
 
+    private class FakeRandom extends Random{
+        public int nextInt(){
+            return 2;
+        }
+    }
 }
